@@ -560,14 +560,7 @@ class V1Manager(BaseManager):
 
     """
     def _execute(self, commands):
-        if self.want.is_tmsh:
-            command = dict(
-                command="modify cli preference pager disabled"
-            )
-        else:
-            command = dict(
-                command="tmsh modify cli preference pager disabled"
-            )
+        command = "paginate false"
         self.execute_on_device(command)
         return self.execute_on_device(commands)
 
@@ -576,13 +569,7 @@ class V1Manager(BaseManager):
         return self.want.cli_commands
 
     def is_tmsh(self):
-        try:
-            self.execute_on_device('tmsh -v')
-        except Exception as ex:
-            if 'Syntax Error:' in str(ex):
-                return True
-            raise
-        return False
+        return True
 
     def exec_module(self):
         result = dict()
