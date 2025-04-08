@@ -19,7 +19,48 @@
 Ansible F5
 ==========
 
-|slack badge| |travis badge| |shippable badge|
+|travis badge| |shippable badge|
+
+
+What this fork aims to do
+-------------------------
+This fork aims to provide the `ryotamiyoshi.f5_modules.bigip_command` module, which is an `F5OS-A` version of the `ryotamiyoshi.f5_modules.bigip_command` module.
+
+The official module for F5OS, `ryotamiyoshi.f5os`, does not provide a `bigip_command` or `f5os_command` (or anything similar).
+
+Therefore, I modified the original `ryotamiyoshi.f5_modules.bigip_command` module to support `F5OS-A`.
+Because we need both the original module and this forked module installed at the same time, I changed the name of the module to `ryotamiyoshi.f5_modules.bigip_command`.
+
+
+Tested situations
+----------------
+
+.. code-block:: yaml
+
+  - name: collect get running-config
+    vars:
+       ansible_connection: local
+       ansible_network_os: ryotamiyoshi.f5_modules.bigip
+    ryotamiyoshi.f5_modules.bigip_command:
+      commands:
+        - show running-config
+      provider:
+        password: "{{ ansible_password }}"
+        user: "{{ ansible_user }}"
+        server: "{{ inventory_hostname }}"
+        transport: cli
+        server_port: 22
+        validate_certs: false
+    register: result
+    delegate_to: localhost
+
+
+
+Important Warning
+-----------------
+
+Do not use Heroku App link for accessing F5 slack channel. It is not owned/maintained/used by F5 anymore.
+You might be exposing yourself to security issues if you access this link thinking it to be the link to F5 slack channel.
 
 Introduction
 ------------
@@ -45,15 +86,37 @@ Installing the Daily Build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code:: shell
 
-    ansible-galaxy collection install <collection name> -p ./collections
-    e.g.
-    ansible-galaxy collection install f5networks-f5_modules-devel.tar.gz -p ./collections
+    ansible-galaxy collection install git+https://github.com/Miyoshi-Ryota/f5-ansible.git#ansible_collections/ryotamiyoshi/f5_modules
 
 .. note::
 
    "-p" is the location in which the collection will be installed. This location should be defined in the path for
    ansible to search for collections. An example of this would be adding ``collections_paths = ./collections``
    to your **ansible.cfg**
+
+Running latest devel in EE
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+We also offer a new method of running the collection inside Ansible's Execution Environment container.
+The advantage of such approach is that any required package dependencies and minimum supported Python versions are
+installed in an isolated container which minimizes any environment related issues during runtime. More information on EE
+can be found here [execenv]. Use the below requirements.yml file when building EE container:
+
+.. code-block:: yaml
+
+    collections:
+      - name: ansible.netcommon
+        version: ">=2.0.0"
+      - name: ryotamiyoshi.f5_modules
+        source: https://github.com/F5Networks/f5-ansible-f5modules#ansible_collections/ryotamiyoshi/f5_modules
+        type: git
+        version: devel
+
+.. note::
+
+   When running the **bigip_device_certificate** module one might see errors related to establishing ssh connection,
+   one reason behind that could be ansible setting the ssh type to **libssh**, there are two ways to fix that,
+   first, set the environemnt variable ``ANSIBLE_NETWORK_CLI_SSH_TYPE=paramiko`` while running the playbook.
+   The second way is to add ``ssh_type = paramiko`` under section ``[persistent_connection]`` in **ansible.cfg**
 
 Support
 -------
@@ -89,7 +152,7 @@ If you've got the time, consider sending an email that introduces yourself and w
 
 .. note:: **We no longer accept external code submissions.**
 
-- Wojciech Wypior and the F5 team - solutionsfeedback@f5.com
+- Wojciech Wypior and the F5 team
 
 Copyright
 ---------
@@ -125,15 +188,15 @@ See `License`_.
 
 .. |dailybuild| raw:: html
 
-   <a href="https://f5-ansible.s3.amazonaws.com/collections/f5networks-f5_modules-devel.tar.gz" target="_blank">here</a>
+   <a href="https://f5-ansible.s3.amazonaws.com/collections/ryotamiyoshi-f5_modules-devel.tar.gz" target="_blank">here</a>
 
 .. |f5_collection| raw:: html
 
-   <a href="https://galaxy.ansible.com/f5networks/f5_modules" target="_blank">F5 Ansible Modules Collection</a>
+   <a href="https://galaxy.ansible.com/ryotamiyoshi/f5_modules" target="_blank">F5 Ansible Modules Collection</a>
 
 .. |ansible_galaxy| raw:: html
 
-   <a href="https://galaxy.ansible.com/f5networks/f5_modules" target="_blank">Ansible Galaxy</a>
+   <a href="https://galaxy.ansible.com/ryotamiyoshi/f5_modules" target="_blank">Ansible Galaxy</a>
 
 .. |support_policy| raw:: html
 
@@ -161,5 +224,5 @@ See `License`_.
 
 .. |changelog| raw:: html
 
-   <a href="https://github.com/F5Networks/f5-ansible/blob/devel/ansible_collections/f5networks/f5_modules/CHANGELOG.rst" target="_blank">Changelogs</a>
+   <a href="https://github.com/F5Networks/f5-ansible/blob/devel/ansible_collections/ryotamiyoshi/f5_modules/CHANGELOG.rst" target="_blank">Changelogs</a>
 

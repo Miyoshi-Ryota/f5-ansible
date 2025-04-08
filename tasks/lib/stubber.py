@@ -26,7 +26,7 @@ if HAS_JINJA:
 
 
 def module_file_present(module):
-    module_file = '{0}/ansible_collections/f5networks/f5_modules/plugins/modules/{1}.py'.format(BASE_DIR, module)
+    module_file = '{0}/ansible_collections/ryotamiyoshi/f5_modules/plugins/modules/{1}.py'.format(BASE_DIR, module)
     if os.path.exists(module_file):
         print('Module file "{0}" exists'.format(module_file))
         return True
@@ -91,7 +91,7 @@ def stub_playbook_file(module):
 
 def stub_library_file(module, extension):
     # Create your new module python file
-    library_file = '{0}/ansible_collections/f5networks/f5_modules/plugins/modules/{1}{2}'.format(
+    library_file = '{0}/ansible_collections/ryotamiyoshi/f5_modules/plugins/modules/{1}{2}'.format(
         BASE_DIR, module, extension
     )
 
@@ -109,10 +109,10 @@ def touch(name, times=None):
 
 
 def stub_unit_test_file(module, extension):
-    test_dir_path = '{0}/ansible_collections/f5networks/f5_modules/tests/unit/modules/network/f5/'.format(BASE_DIR)
+    test_dir_path = '{0}/ansible_collections/ryotamiyoshi/f5_modules/tests/unit/modules/network/f5/'.format(BASE_DIR)
     if not os.path.exists(test_dir_path):
         os.makedirs(test_dir_path)
-    test_file = '{0}/ansible_collections/f5networks/f5_modules/tests/unit/modules/network/f5/test_{1}{2}'.format(
+    test_file = '{0}/ansible_collections/ryotamiyoshi/f5_modules/tests/unit/modules/network/f5/test_{1}{2}'.format(
         BASE_DIR, module, extension
     )
 
@@ -163,16 +163,16 @@ def unstub_playbook_file(module):
 
 
 def unstub_library_file(module, extension):
-    library_file = '{0}/ansible_collections/f5networks/f5_modules/plugins/modules/{1}{2}'.format(BASE_DIR, module, extension)
+    library_file = '{0}/ansible_collections/ryotamiyoshi/f5_modules/plugins/modules/{1}{2}'.format(BASE_DIR, module, extension)
     if os.path.exists(library_file):
         os.remove(library_file)
 
 
 def unstub_unit_test_file(module, extension):
-    test_dir_path = '{0}/ansible_collections/f5networks/f5_modules/tests/unit/modules/network/f5/'.format(BASE_DIR)
+    test_dir_path = '{0}/ansible_collections/ryotamiyoshi/f5_modules/tests/unit/modules/network/f5/'.format(BASE_DIR)
     if not os.path.exists(test_dir_path):
         os.makedirs(test_dir_path)
-    test_file = '{0}/ansible_collections/f5networks/f5_modules/tests/unit/modules/network/f5/test_{1}{2}'.format(
+    test_file = '{0}/ansible_collections/ryotamiyoshi/f5_modules/tests/unit/modules/network/f5/test_{1}{2}'.format(
         BASE_DIR, module, extension
     )
     if os.path.exists(test_file):

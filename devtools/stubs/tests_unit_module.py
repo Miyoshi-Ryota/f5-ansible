@@ -16,12 +16,12 @@ if sys.version_info < (2, 7):
 
 from ansible.module_utils.basic import AnsibleModule
 
-from ansible_collections.f5networks.f5_modules.plugins.modules.{{ module }} import (
+from ansible_collections.ryotamiyoshi.f5_modules.plugins.modules.{{ module }} import (
     ApiParameters, ModuleParameters, ModuleManager, ArgumentSpec
 )
-from ansible_collections.f5networks.f5_modules.tests.unit.modules.utils import set_module_args
-from ansible_collections.f5networks.f5_modules.tests.unit.compat import unittest
-from ansible_collections.f5networks.f5_modules.tests.unit.compat.mock import (
+from ansible_collections.ryotamiyoshi.f5_modules.tests.unit.modules.utils import set_module_args
+from ansible_collections.ryotamiyoshi.f5_modules.tests.unit.compat import unittest
+from ansible_collections.ryotamiyoshi.f5_modules.tests.unit.compat.mock import (
     Mock, patch
 )
 

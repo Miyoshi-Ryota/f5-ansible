@@ -37,7 +37,7 @@ HELP = dict(
 
 def update_galaxy_file(version, collection):
     # updates galaxy.yml file for collection update
-    galaxy_file = '{0}/ansible_collections/f5networks/{1}/galaxy.yml'.format(BASE_DIR, collection)
+    galaxy_file = '{0}/ansible_collections/ryotamiyoshi/{1}/galaxy.yml'.format(BASE_DIR, collection)
 
     template = JINJA_ENV.get_template('collection_galaxy_{0}.yml'.format(collection))
     content = template.render(version=version, collection=collection)
@@ -49,7 +49,7 @@ def update_galaxy_file(version, collection):
 
 def update_version_file(version, collection):
     # updates version.py file for collection update
-    version_file = '{0}/ansible_collections/f5networks/{1}/plugins/module_utils/version.py'.format(BASE_DIR, collection)
+    version_file = '{0}/ansible_collections/ryotamiyoshi/{1}/plugins/module_utils/version.py'.format(BASE_DIR, collection)
 
     template = JINJA_ENV.get_template('version_stub.py')
     content = template.render(version=version)
@@ -92,7 +92,7 @@ def build(c, version, collection='f5_modules', update=False):
         update_galaxy_file(version, collection)
     if not os.path.exists(BUILD_DIR):
         os.makedirs(BUILD_DIR)
-    coll_dest = '{0}/ansible_collections/f5networks/{1}'.format(BASE_DIR, collection)
+    coll_dest = '{0}/ansible_collections/ryotamiyoshi/{1}'.format(BASE_DIR, collection)
     cmd = 'ansible-galaxy collection build {0} -f --output-path {1}'.format(coll_dest, BUILD_DIR)
     c.run(cmd)
 
@@ -117,7 +117,7 @@ def publish(c, filename, api_key, ah=None):
 ))
 def changelog(c, version):
     """Build changelog and update galaxy.yml file version number."""
-    collection = '{0}/ansible_collections/f5networks/f5_modules'.format(BASE_DIR)
+    collection = '{0}/ansible_collections/ryotamiyoshi/f5_modules'.format(BASE_DIR)
     validate_version(version)
     print('Updating version.py file.')
     update_version_file(version, 'f5_modules')

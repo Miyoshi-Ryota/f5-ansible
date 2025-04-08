@@ -16,7 +16,7 @@ from invoke import task
 
 @task(name='f5-sanity')
 def f5_sanity(c):
-    collection = '{0}/ansible_collections/f5networks/f5_modules'.format(BASE_DIR)
+    collection = '{0}/ansible_collections/ryotamiyoshi/f5_modules'.format(BASE_DIR)
     """Runs additional sanity tests on the F5 modules."""
     cmds = [
         'bash {0}/test/sanity/correct-defaultdict-import.sh'.format(BASE_DIR),
@@ -42,13 +42,13 @@ def f5_sanity(c):
 @task
 def unit(c):
     """Unit tests on F5 Ansible modules."""
-    c.run("PYTHONPATH={0} pytest -s -x {0}/ansible_collections/f5networks/f5_modules/tests/".format(BASE_DIR))
+    c.run("PYTHONPATH={0} pytest -s -x {0}/ansible_collections/ryotamiyoshi/f5_modules/tests/".format(BASE_DIR))
 
 
 @task
 def style(c):
     """Doc style testing on modules."""
-    c.run("pycodestyle {0}/ansible_collections/f5networks/f5_modules/plugins/".format(BASE_DIR))
+    c.run("pycodestyle {0}/ansible_collections/ryotamiyoshi/f5_modules/plugins/".format(BASE_DIR))
 
 
 @task(name='install-dep')
@@ -61,7 +61,7 @@ def install_dependency(c):
 def ansible_test(c, python_version='3.8', requirements=False):
     """Runs ansible-test sanity tests against modules."""
     net_dir = '{0}/ansible_collections/ansible/netcommon/'.format(BASE_DIR)
-    collection = '{0}/ansible_collections/f5networks/f5_modules'.format(BASE_DIR)
+    collection = '{0}/ansible_collections/ryotamiyoshi/f5_modules'.format(BASE_DIR)
     if not os.path.exists(net_dir):
         install_dependency(c)
     with c.cd(collection):

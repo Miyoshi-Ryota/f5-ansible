@@ -9,7 +9,7 @@ issues: https://github.com/F5Networks/f5-ansible/issues
 license:
   - "GPL-3.0-only"
 name: {{ collection }}
-namespace: f5networks
+namespace: ryotamiyoshi
 readme: README.md
 repository: https://github.com/F5Networks/f5-ansible
 tags:
