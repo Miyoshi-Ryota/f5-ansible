@@ -21,11 +21,46 @@ F5 BIG-IP Imperative Collection for Ansible
 
 |travis badge| |shippable badge|
 
+
+What this fork aims to do
+-------------------------
+This fork aims to provide the `ryotamiyoshi.f5_modules.bigip_command` module, which is an `F5OS-A` version of the `ryotamiyoshi.f5_modules.bigip_command` module.
+
+The official module for F5OS, `ryotamiyoshi.f5os`, does not provide a `bigip_command` or `f5os_command` (or anything similar).
+
+Therefore, I modified the original `ryotamiyoshi.f5_modules.bigip_command` module to support `F5OS-A`.
+Because we need both the original module and this forked module installed at the same time, I changed the name of the module to `ryotamiyoshi.f5_modules.bigip_command`.
+
+
+Tested situations
+----------------
+
+.. code-block:: yaml
+
+  - name: collect get running-config
+    vars:
+       ansible_connection: local
+       ansible_network_os: ryotamiyoshi.f5_modules.bigip
+    ryotamiyoshi.f5_modules.bigip_command:
+      commands:
+        - show running-config
+      provider:
+        password: "{{ ansible_password }}"
+        user: "{{ ansible_user }}"
+        server: "{{ inventory_hostname }}"
+        transport: cli
+        server_port: 22
+        validate_certs: false
+    register: result
+    delegate_to: localhost
+
+
+
 Important Warning
 -----------------
 
 Do not use Heroku App link for accessing F5 slack channel. It is not owned/maintained/used by F5 anymore.
-You might be exposing yourself to security issues if you access this link thinking it to be the link to F5 slack channel. 
+You might be exposing yourself to security issues if you access this link thinking it to be the link to F5 slack channel.
 
 Introduction
 ------------
@@ -51,9 +86,7 @@ Installing the Daily Build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: shell
 
-    ansible-galaxy collection install <collection name> -p ./collections
-    e.g.
-    ansible-galaxy collection install f5networks-f5_modules-devel.tar.gz -p ./collections
+    ansible-galaxy collection install git+https://github.com/Miyoshi-Ryota/f5-ansible.git#ansible_collections/ryotamiyoshi/f5_modules
 
 .. note::
 
@@ -73,8 +106,8 @@ can be found here [execenv]. Use the below requirements.yml file when building E
     collections:
       - name: ansible.netcommon
         version: ">=2.0.0"
-      - name: f5networks.f5_modules
-        source: https://github.com/F5Networks/f5-ansible-f5modules#ansible_collections/f5networks/f5_modules
+      - name: ryotamiyoshi.f5_modules
+        source: https://github.com/F5Networks/f5-ansible-f5modules#ansible_collections/ryotamiyoshi/f5_modules
         type: git
         version: devel
 
@@ -116,7 +149,7 @@ If you've got the time, consider sending an email that introduces yourself and w
 
 .. note:: **We no longer accept external code submissions.**
 
-- Wojciech Wypior and the F5 team 
+- Wojciech Wypior and the F5 team
 
 Copyright
 ---------
@@ -148,15 +181,15 @@ See `License`_.
 
 .. |dailybuild| raw:: html
 
-   <a href="https://f5-ansible.s3.amazonaws.com/collections/f5networks-f5_modules-devel.tar.gz" target="_blank">here</a>
+   <a href="https://f5-ansible.s3.amazonaws.com/collections/ryotamiyoshi-f5_modules-devel.tar.gz" target="_blank">here</a>
 
 .. |f5_collection| raw:: html
 
-   <a href="https://galaxy.ansible.com/f5networks/f5_modules" target="_blank">F5 Ansible Modules Collection</a>
+   <a href="https://galaxy.ansible.com/ryotamiyoshi/f5_modules" target="_blank">F5 Ansible Modules Collection</a>
 
 .. |ansible_galaxy| raw:: html
 
-   <a href="https://galaxy.ansible.com/f5networks/f5_modules" target="_blank">Ansible Galaxy</a>
+   <a href="https://galaxy.ansible.com/ryotamiyoshi/f5_modules" target="_blank">Ansible Galaxy</a>
 
 .. |support_policy| raw:: html
 
@@ -180,5 +213,5 @@ See `License`_.
 
 .. |changelog| raw:: html
 
-   <a href="https://github.com/F5Networks/f5-ansible/blob/devel/ansible_collections/f5networks/f5_modules/CHANGELOG.rst" target="_blank">Changelogs</a>
+   <a href="https://github.com/F5Networks/f5-ansible/blob/devel/ansible_collections/ryotamiyoshi/f5_modules/CHANGELOG.rst" target="_blank">Changelogs</a>
 
