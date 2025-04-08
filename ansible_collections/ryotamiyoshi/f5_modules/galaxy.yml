@@ -9,7 +9,7 @@ homepage: https://clouddocs.f5.com/products/orchestration/ansible/devel/
 issues: https://github.com/Miyoshi-Ryota/f5-ansible/issues
 license:
   - "GPL-3.0-only"
-name: f5modules
+name: f5_modules
 namespace: ryotamiyoshi
 readme: README.md
 build_ignore:

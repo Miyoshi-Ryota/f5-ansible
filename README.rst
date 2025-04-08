@@ -21,6 +21,41 @@ F5 BIG-IP Imperative Collection for Ansible
 
 |travis badge| |shippable badge|
 
+
+What this fork aims to do
+-------------------------
+This fork aims to provide the `ryotamiyoshi.f5_modules.bigip_command` module, which is an `F5OS-A` version of the `f5networks.f5_modules.bigip_command` module.
+
+The official module for F5OS, `f5networks.f5os`, does not provide a `bigip_command` or `f5os_command` (or anything similar).
+
+Therefore, I modified the original `f5networks.f5_modules.bigip_command` module to support `F5OS-A`.
+Because we need both the original module and this forked module installed at the same time, I changed the name of the module to `ryotamiyoshi.f5_modules.bigip_command`.
+
+
+Tested situations
+----------------
+
+.. code-block:: yaml
+
+  - name: collect get running-config
+    vars:
+       ansible_connection: local
+       ansible_network_os: ryotamiyoshi.f5_modules.bigip
+    ryotamiyoshi.f5_modules.bigip_command:
+      commands:
+        - show running-config
+      provider:
+        password: "{{ ansible_password }}"
+        user: "{{ ansible_user }}"
+        server: "{{ inventory_hostname }}"
+        transport: cli
+        server_port: 22
+        validate_certs: false
+    register: result
+    delegate_to: localhost
+
+
+
 Important Warning
 -----------------
 
@@ -51,9 +86,7 @@ Installing the Daily Build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: shell
 
-    ansible-galaxy collection install <collection name> -p ./collections
-    e.g.
-    ansible-galaxy collection install ryotamiyoshi-f5_modules-devel.tar.gz -p ./collections
+    ansible-galaxy collection install git+https://github.com/Miyoshi-Ryota/f5-ansible.git#ansible_collections/ryotamiyoshi/f5_modules
 
 .. note::
 
