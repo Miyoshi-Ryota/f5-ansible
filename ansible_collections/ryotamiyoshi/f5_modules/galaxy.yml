@@ -1,0 +1,32 @@
+authors:
+  - Wojciech Wypior (@wojtek0806)
+  - Rohit Upadhyay (@urohit011)
+dependencies:
+  ansible.netcommon: ">=2.0.0"
+description: F5 BIG-IP Imperative Collection for Ansible
+documentation: https://clouddocs.f5.com/products/orchestration/ansible/devel/modules/module_index.html
+homepage: https://clouddocs.f5.com/products/orchestration/ansible/devel/
+issues: https://github.com/Miyoshi-Ryota/f5-ansible/issues
+license:
+  - "GPL-3.0-only"
+name: f5modules
+namespace: ryotamiyoshi
+readme: README.md
+build_ignore:
+  - tests/__pycache__
+  - tests/compat
+  - tests/mock
+  - tests/modules
+  - tests/module_utils
+  - tests/modules
+  - tests/plugins
+  - tests/unit
+  - tests/*.ini
+  - tests/*.py
+repository: https://github.com/Miyoshi-Ryota/f5-ansible
+tags:
+  - f5
+  - networking
+  - bigip
+  - bigiq
+version: 1.35.0-forked-for-f5os-a

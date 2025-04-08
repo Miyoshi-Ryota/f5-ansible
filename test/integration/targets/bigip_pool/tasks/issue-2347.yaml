@@ -1,7 +1,7 @@
 ---
 
 - name: Issue-2347 Create a pool with monitor
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
     name: "issue-2347"
     priority_group_activation: 1
     lb_method: "least-connections-member"
@@ -30,7 +30,7 @@
       - result is changed
 
 - name: Issue-2347 Create a pool with monitor - Idempotent Check
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
     name: "issue-2347"
     priority_group_activation: 1
     lb_method: "least-connections-member"
@@ -58,7 +58,7 @@
       - result is not changed
 
 - name: Issue-2347 Change the monitor type
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
       name: "issue-2347"
       priority_group_activation: 1
       lb_method: "least-connections-member"
@@ -88,7 +88,7 @@
       - result is changed
 
 - name: Issue-2347 Change the monitor type  Idempotent Check
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
       name: "issue-2347"
       priority_group_activation: 1
       lb_method: "least-connections-member"
@@ -117,7 +117,7 @@
       - result is not changed
 
 - name: Issue-2347 Removing monitor from the Pool
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
     name: "issue-2347"
     priority_group_activation: 1
     lb_method: "least-connections-member"
@@ -143,7 +143,7 @@
       - result is changed
 
 - name: Issue-2347 Removing monitor from the Pool - Idempotent Check
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
     name: "issue-2347"
     priority_group_activation: 1
     lb_method: "least-connections-member"
@@ -168,7 +168,7 @@
       - result is not changed
 
 - name: Issue-2347 Delete pool
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
     name: "issue-2347"
     priority_group_activation: 1
     lb_method: "least-connections-member"
@@ -193,7 +193,7 @@
       - result is changed
 
 - name: Issue-2347 Delete pool - Idempotent Check
-  f5networks.f5_modules.bigip_pool:
+  ryotamiyoshi.f5_modules.bigip_pool:
     name: "issue-2347"
     priority_group_activation: 1
     lb_method: "least-connections-member"

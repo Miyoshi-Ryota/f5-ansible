@@ -1,6 +1,6 @@
 ---
 
-# @see https://github.com/F5Networks/f5-ansible/issues/59
+# @see https://github.com/ryotamiyoshi/f5-ansible/issues/59
 
 - name: Issue 00059 - Create policy
   bigip_policy:

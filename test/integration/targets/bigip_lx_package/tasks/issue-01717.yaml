@@ -2,7 +2,7 @@
 
 - name: Issue 01717 - Grab RPM package from github
   get_url:
-    url: https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.5.0/f5-appsvcs-3.5.0-3.noarch.rpm
+    url: https://github.com/ryotamiyoshi/f5-appsvcs-extension/releases/download/v3.5.0/f5-appsvcs-3.5.0-3.noarch.rpm
     dest: /var/tmp
     validate_certs: False
 

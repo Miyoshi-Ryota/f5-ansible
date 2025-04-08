@@ -1,6 +1,6 @@
 ---
 # This playbook example test for: SR-1-7617462751,SR-1-7590258461 and
-# https://github.com/F5Networks/f5-ansible/issues/1813
+# https://github.com/ryotamiyoshi/f5-ansible/issues/1813
 
 - name: Issue 01813 - Test bigip_virtual_server using profile fastL4 with partition name
   bigip_virtual_server:

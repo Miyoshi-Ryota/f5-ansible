@@ -25,7 +25,7 @@ Important Warning
 -----------------
 
 Do not use Heroku App link for accessing F5 slack channel. It is not owned/maintained/used by F5 anymore.
-You might be exposing yourself to security issues if you access this link thinking it to be the link to F5 slack channel. 
+You might be exposing yourself to security issues if you access this link thinking it to be the link to F5 slack channel.
 
 Introduction
 ------------
@@ -53,7 +53,7 @@ Installing the Daily Build
 
     ansible-galaxy collection install <collection name> -p ./collections
     e.g.
-    ansible-galaxy collection install f5networks-f5_modules-devel.tar.gz -p ./collections
+    ansible-galaxy collection install ryotamiyoshi-f5_modules-devel.tar.gz -p ./collections
 
 .. note::
 
@@ -73,8 +73,8 @@ can be found here [execenv]. Use the below requirements.yml file when building E
     collections:
       - name: ansible.netcommon
         version: ">=2.0.0"
-      - name: f5networks.f5_modules
-        source: https://github.com/F5Networks/f5-ansible-f5modules#ansible_collections/f5networks/f5_modules
+      - name: ryotamiyoshi.f5_modules
+        source: https://github.com/ryotamiyoshi/f5-ansible-f5modules#ansible_collections/ryotamiyoshi/f5_modules
         type: git
         version: devel
 
@@ -116,7 +116,7 @@ If you've got the time, consider sending an email that introduces yourself and w
 
 .. note:: **We no longer accept external code submissions.**
 
-- Wojciech Wypior and the F5 team 
+- Wojciech Wypior and the F5 team
 
 Copyright
 ---------
@@ -135,28 +135,28 @@ This License does not grant permission to use the trade names, trademarks, servi
 See `License`_.
 
 
-.. |travis badge| image:: https://travis-ci.com/F5Networks/f5-ansible.svg?branch=devel
-    :target: https://travis-ci.com/F5Networks/f5-ansible
+.. |travis badge| image:: https://travis-ci.com/ryotamiyoshi/f5-ansible.svg?branch=devel
+    :target: https://travis-ci.com/ryotamiyoshi/f5-ansible
     :alt: Build Status
 
 .. |shippable badge| image:: https://api.shippable.com/projects/57c88ded5a5c0d0f0012c53e/badge?branch=devel
-    :target: https://app.shippable.com/github/F5Networks/f5-ansible
+    :target: https://app.shippable.com/github/ryotamiyoshi/f5-ansible
     :alt: Shippable Status
 
-.. _License: https://github.com/F5Networks/f5-ansible/blob/devel/COPYING
+.. _License: https://github.com/ryotamiyoshi/f5-ansible/blob/devel/COPYING
 
 
 .. |dailybuild| raw:: html
 
-   <a href="https://f5-ansible.s3.amazonaws.com/collections/f5networks-f5_modules-devel.tar.gz" target="_blank">here</a>
+   <a href="https://f5-ansible.s3.amazonaws.com/collections/ryotamiyoshi-f5_modules-devel.tar.gz" target="_blank">here</a>
 
 .. |f5_collection| raw:: html
 
-   <a href="https://galaxy.ansible.com/f5networks/f5_modules" target="_blank">F5 Ansible Modules Collection</a>
+   <a href="https://galaxy.ansible.com/ryotamiyoshi/f5_modules" target="_blank">F5 Ansible Modules Collection</a>
 
 .. |ansible_galaxy| raw:: html
 
-   <a href="https://galaxy.ansible.com/f5networks/f5_modules" target="_blank">Ansible Galaxy</a>
+   <a href="https://galaxy.ansible.com/ryotamiyoshi/f5_modules" target="_blank">Ansible Galaxy</a>
 
 .. |support_policy| raw:: html
 
@@ -164,7 +164,7 @@ See `License`_.
 
 .. |ansible_issues| raw:: html
 
-   <a href="https://github.com/F5Networks/f5-ansible/issues" target="_blank">Github Issues</a>
+   <a href="https://github.com/ryotamiyoshi/f5-ansible/issues" target="_blank">Github Issues</a>
 
 .. |ansiblehelp| raw:: html
 
@@ -180,5 +180,5 @@ See `License`_.
 
 .. |changelog| raw:: html
 
-   <a href="https://github.com/F5Networks/f5-ansible/blob/devel/ansible_collections/f5networks/f5_modules/CHANGELOG.rst" target="_blank">Changelogs</a>
+   <a href="https://github.com/ryotamiyoshi/f5-ansible/blob/devel/ansible_collections/ryotamiyoshi/f5_modules/CHANGELOG.rst" target="_blank">Changelogs</a>
 

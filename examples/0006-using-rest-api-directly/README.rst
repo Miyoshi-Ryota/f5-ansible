@@ -125,8 +125,8 @@ You assume the following risks when you use the REST API directly.
   want to set.
 
 * Using the REST API directly is **not** idempotent. This example playbook makes use of
-  fake idempotentency similar to: https://github.com/F5Networks/f5-ansible/tree/devel/examples/0004-faking-idempotency-with-bigip-command
+  fake idempotentency similar to: https://github.com/ryotamiyoshi/f5-ansible/tree/devel/examples/0004-faking-idempotency-with-bigip-command
   This is done by checking for an object before creating/deleting.
 
-.. _F5 Python SDK: https://github.com/F5Networks/f5-common-python
+.. _F5 Python SDK: https://github.com/ryotamiyoshi/f5-common-python
 .. _uri: https://docs.ansible.com/ansible/latest/uri_module.html

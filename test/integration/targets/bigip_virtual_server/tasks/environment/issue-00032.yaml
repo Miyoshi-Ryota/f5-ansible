@@ -1,6 +1,6 @@
 ---
 
-# @see https://github.com/F5Networks/f5-ansible/issues/32
+# @see https://github.com/ryotamiyoshi/f5-ansible/issues/32
 
 - name: Issue 00032 - Create pool
   bigip_pool:

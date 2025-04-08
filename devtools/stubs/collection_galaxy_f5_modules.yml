@@ -6,11 +6,11 @@ dependencies:
 description: F5 BIG-IP Imperative Collection for Ansible
 documentation: https://clouddocs.f5.com/products/orchestration/ansible/devel/modules/module_index.html
 homepage: https://clouddocs.f5.com/products/orchestration/ansible/devel/
-issues: https://github.com/F5Networks/f5-ansible/issues
+issues: https://github.com/ryotamiyoshi/f5-ansible/issues
 license:
   - "GPL-3.0-only"
 name: {{ collection }}
-namespace: f5networks
+namespace: ryotamiyoshi
 readme: README.md
 build_ignore:
   - tests/__pycache__
@@ -23,7 +23,7 @@ build_ignore:
   - tests/unit
   - tests/*.ini
   - tests/*.py
-repository: https://github.com/F5Networks/f5-ansible-f5modules
+repository: https://github.com/ryotamiyoshi/f5-ansible-f5modules
 tags:
   - f5
   - networking
